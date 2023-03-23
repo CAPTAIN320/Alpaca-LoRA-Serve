@@ -6,7 +6,7 @@ PARENT_BLOCK_CSS = """
 }
 
 #chatbot {
-    height: 500px; 
+    height: 10px; 
     overflow: auto;
 }
 

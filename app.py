@@ -1,6 +1,4 @@
-from strings import TITLE, ABSTRACT, BOTTOM_LINE
-from strings import DEFAULT_EXAMPLES
-from strings import SPECIAL_STRS
+from strings import TITLE, ABSTRACT, SPECIAL_STRS
 from styles import PARENT_BLOCK_CSS
 
 import gradio as gr
@@ -109,19 +107,6 @@ def run(args):
                 
                 continue_btn = gr.Button(value="Continue")
                 summarize_btn = gr.Button(value="Summarize")
-
-            gr.Markdown("#### Examples")
-            for idx, examples in enumerate(DEFAULT_EXAMPLES):
-                with gr.Accordion(examples["title"], open=False):
-                    gr.Examples(
-                        examples=examples["examples"], 
-                        inputs=[
-                            hidden_txtbox, instruction_txtbox
-                        ],
-                        label=None
-                    )
-
-            gr.Markdown(f"{BOTTOM_LINE}")
             
         send_prompt_btn.click(
             chat_batch if batch_enabled else chat_stream, 
